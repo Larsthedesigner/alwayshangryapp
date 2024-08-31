@@ -1,0 +1,121 @@
+/* src/index.css */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+.App {
+  text-align: center;
+  margin: 20px;
+}
+
+.profile-header {
+  display: flex;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.profile-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.profile-details {
+  text-align: left;
+}
+
+.profile-stats {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 200px; /* Adjust width as needed */
+}
+
+.stat {
+  text-align: center;
+}
+
+.count {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.caption {
+  font-size: 0.9em;
+  color: #888;
+}
+
+.timeline {
+  margin-top: 20px;
+}
+
+.timeline.grid .post {
+  display: inline-block;
+  width: 30%;
+  margin: 1%;
+  box-sizing: border-box;
+}
+
+.timeline.list .post {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.post {
+  background-color: white;
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.view-toggle {
+  margin: 20px 0;
+}
+
+.view-toggle button {
+  background: none;
+  border: none;
+  padding: 10px 15px;
+  margin: 0 5px;
+  cursor: pointer;
+  font-size: 1.5em;
+  color: #555;
+}
+
+.view-toggle button:hover {
+  color: #000;
+
+  .avatar-container {
+    width: 100px; /* Adjust the size as needed */
+    height: 100px; /* Must match the width for a perfect circle */
+    border-radius: 50%; /* Makes the container circular */
+    overflow: hidden; /* Hides any overflow from the image */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #007bff; /* Optional: adds a border around the avatar */
+  }
+
+  /* Style for the avatar image */
+  .avatar {
+    width: 120%; /* Takes up the full width of the container */
+    height: 120%; /* Takes up the full height of the container */
+    object-fit: cover; /* Crops the image to fit within the container without distortion */
+  }
+
+}
+
