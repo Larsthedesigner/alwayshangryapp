@@ -1,15 +1,13 @@
-
 // src/App.js
 
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Timeline from './timeline.jsx';
 import Login from './login.jsx';
-import Signup from './signup';
+import SignUp from './signup.jsx';
 import CreatePost from './Createpost.jsx';
 import PrivateRoute from './privateroute.jsx';
 import avatar from './Images/avatar.jpeg'; // Import the image
-
 
 function App() {
   const [layout, setLayout] = useState('list'); // Add useState for layout
@@ -18,9 +16,7 @@ function App() {
     <Router>
       <div className="App">
         <header className="profile-header">
-          <div className="avatar-container">
-            <img src={avatar} alt="Avatar" className="avatar" /> {/* Use the imported image */}
-          </div>
+          <img src={avatar} alt="Avatar" className="avatar" />
           <div className="profile-info">
             <div className="profile-details">
               <h1>Lars <i className="fas fa-check-circle verified-icon"></i></h1> {/* Verified checkmark */}
@@ -53,15 +49,20 @@ function App() {
           </button>
         </div>
 
+        <div className="nav-links">
+          <Link to="/login">Login</Link>
+          <Link to="/signup">Sign Up</Link>
+          <Link to="/create-post">Create Post</Link>
+        </div>
+
         <section className={`timeline ${layout}`}>
           <h2>My Timeline</h2>
-          {/* Timeline posts will go here */}
         </section>
 
         <Routes>
           <Route path="/" element={<Timeline />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/create-post" element={<PrivateRoute><CreatePost /></PrivateRoute>} />
         </Routes>
       </div>
