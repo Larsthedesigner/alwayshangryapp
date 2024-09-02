@@ -4,17 +4,21 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage"; // Import Firebase Storage
+import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_REACT_APP_API_KEY,
-  authDomain: "alwayshangry-3b9ed.firebaseapp.com",
-  projectId: "alwayshangry-3b9ed",
-  storageBucket: "alwayshangry-3b9ed.appspot.com",
-  messagingSenderId: "529865463950",
-  appId: "1:529865463950:web:a5866c3b5c87901c6451df"
+authDomain: "alwayshangryapp.firebaseapp.com",
+  projectId: "alwayshangryapp",
+  storageBucket: "alwayshangryapp.appspot.com",
+  messagingSenderId: "930061813500",
+  appId: "1:930061813500:web:709b76cc05cef202dd7979",
+  measurementId: "G-V61WDMMS8Z"
 };
 
+
 const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
 export const auth = getAuth(app);
 export const db = getFirestore(app);

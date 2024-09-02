@@ -1,9 +1,11 @@
 // src/CreatePost.jsx
+
 import React, { useState } from 'react';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { getFirestore, collection, addDoc, Timestamp } from 'firebase/firestore';
-import { storage } from './firebaseconfig'; // Import storage from your Firebase config file
+import { storage } from './firebaseconfig';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 function CreatePost() {
   const [image, setImage] = useState(null);
@@ -11,6 +13,7 @@ function CreatePost() {
   const [user, setUser] = useState(null);
   const auth = getAuth();
   const db = getFirestore();
+  const navigate = useNavigate(); // Initialize useNavigate
 
   // Check if the user is authenticated
   onAuthStateChanged(auth, (currentUser) => {
@@ -31,7 +34,6 @@ function CreatePost() {
     e.preventDefault();
     if (!image || !caption || !user) return;
 
-    // Compress or optimize image if needed
     // Upload image
     const imageRef = ref(storage, `images/${image.name}`);
     await uploadBytes(imageRef, image);
@@ -64,6 +66,7 @@ function CreatePost() {
         />
         <button type="submit">Submit Post</button>
       </form>
+      <button onClick={() => navigate('/')}>Back to Timeline</button> {/* Back to Timeline button */}
     </div>
   );
 }

@@ -104,7 +104,7 @@ body {
     height: 100px; /* Must match the width for a perfect circle */
     border-radius: 50%; /* Makes the container circular */
     overflow: hidden; /* Hides any overflow from the image */
-    display: flex;
+    display: cover;
     align-items: center;
     justify-content: center;
     border: 3px solid #007bff; /* Optional: adds a border around the avatar */
@@ -121,3 +121,26 @@ body {
 
 }
 
+/* Add these styles to your CSS file */
+
+.nav-links {
+  position: absolute; /* Position the container absolutely */
+  top: 4px; /* Distance from the top */
+  right: 4px; /* Distance from the right */
+  display: flex; /* Display buttons in a row */
+  gap: 10px; /* Space between the buttons */
+}
+
+.nav-links button {
+  background-color: #cccccc; /* Button color */
+  color: #333333; /* Text color */
+  border: none; /* Remove border */
+  padding: 4px 8px; /* Button padding */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+.nav-links button:hover {
+  background-color: #c3c3c3; /* Darker button color on hover */
+}
+0056b3

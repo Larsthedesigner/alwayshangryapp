@@ -1,26 +1,30 @@
 // src/App.js
 
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Timeline from './timeline.jsx';
 import Login from './login.jsx';
-import SignUp from './signup.jsx';
+// import SignUp from './signup.jsx'; // Comment out if not used
 import CreatePost from './Createpost.jsx';
 import PrivateRoute from './privateroute.jsx';
 import avatar from './Images/avatar.jpeg'; // Import the image
+import { AuthContext } from './authcontext.jsx'; // Import AuthContext
 
 function App() {
   const [layout, setLayout] = useState('list'); // Add useState for layout
+  const { user } = useContext(AuthContext); // Get the user from AuthContext
 
   return (
     <Router>
       <div className="App">
         <header className="profile-header">
-          <img src={avatar} alt="Avatar" className="avatar" />
+          <div className="avatar-container">
+            <img src={avatar} alt="Avatar" className="avatar" />
+          </div>
           <div className="profile-info">
             <div className="profile-details">
-              <h1>Lars <i className="fas fa-check-circle verified-icon"></i></h1> {/* Verified checkmark */}
-              <p>@yalwayshangry</p>
+              <h1>Lars </h1>
+              <p>@alwayshangry</p>
               <p>no u r hangry</p>
             </div>
             <div className="profile-stats">
@@ -40,29 +44,26 @@ function App() {
           </div>
         </header>
 
-        <div className="view-toggle">
-          <button onClick={() => setLayout('grid')}>
-            <i className="fas fa-th"></i> {/* Grid view icon */}
-          </button>
-          <button onClick={() => setLayout('list')}>
-            <i className="fas fa-list"></i> {/* List view icon */}
-          </button>
-        </div>
-
         <div className="nav-links">
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
-          <Link to="/create-post">Create Post</Link>
+          <Link to="/login">
+            <button>Login</button>
+          </Link>
+          {user && (
+            <Link to="/create-post">
+              <button>Create Post</button>
+            </Link>
+          )}
         </div>
 
         <section className={`timeline ${layout}`}>
-          <h2>My Timeline</h2>
+          {/* Content for the timeline can be included here */}
         </section>
 
         <Routes>
           <Route path="/" element={<Timeline />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
+          {/* Commented out SignUp route */}
+          {/* <Route path="/signup" element={<SignUp />} /> */}
           <Route path="/create-post" element={<PrivateRoute><CreatePost /></PrivateRoute>} />
         </Routes>
       </div>
