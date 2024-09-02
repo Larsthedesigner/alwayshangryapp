@@ -1,6 +1,6 @@
 // src/App.js
 
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Timeline from './timeline.jsx';
 import Login from './login.jsx';
@@ -23,7 +23,7 @@ function App() {
           </div>
           <div className="profile-info">
             <div className="profile-details">
-              <h1>Lars </h1>
+              <h1>Lars</h1>
               <p>@alwayshangry</p>
               <p>no u r hangry</p>
             </div>
@@ -60,7 +60,7 @@ function App() {
         </section>
 
         <Routes>
-          <Route path="/" element={<Timeline />} />
+          <Route path="/" element={<Timeline />} /> {/* Publicly accessible */}
           <Route path="/login" element={<Login />} />
           {/* Commented out SignUp route */}
           {/* <Route path="/signup" element={<SignUp />} /> */}
