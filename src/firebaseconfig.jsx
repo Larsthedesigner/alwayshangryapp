@@ -8,7 +8,7 @@ import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_REACT_APP_API_KEY,
-authDomain: "alwayshangryapp.firebaseapp.com",
+  authDomain: "alwayshangryapp.firebaseapp.com",
   projectId: "alwayshangryapp",
   storageBucket: "alwayshangryapp.appspot.com",
   messagingSenderId: "930061813500",
