@@ -21,4 +21,5 @@ export default defineConfig({
         VITE_REACT_APP_APP_ID: JSON.stringify(process.env.VITE_REACT_APP_APP_ID),
         VITE_REACT_APP_MEASUREMENT_ID: JSON.stringify(process.env.VITE_REACT_APP_MEASUREMENT_ID),
   }
+}
 });
