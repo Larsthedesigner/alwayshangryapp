@@ -27,20 +27,6 @@ function App() {
               <p>@alwayshangry</p>
               <p>no u r hangry</p>
             </div>
-            <div className="profile-stats">
-              <div className="stat">
-                <p className="count">0</p>
-                <p className="caption">Followers</p>
-              </div>
-              <div className="stat">
-                <p className="count">0</p>
-                <p className="caption">Following</p>
-              </div>
-              <div className="stat">
-                <p className="count">789</p>
-                <p className="caption">Posts</p>
-              </div>
-            </div>
           </div>
         </header>
 
