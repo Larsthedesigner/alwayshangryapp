@@ -25,5 +25,9 @@
     "firebase": "^10.13.1",
     "react-firebase-hooks": "^5.1.1",
     "react-router-dom": "^6.26.1"
+  },
+  "engines": {
+    "node": ">=14.x",  
+    "npm": ">=8.x"
   }
 }
