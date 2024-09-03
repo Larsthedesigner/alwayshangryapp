@@ -106,8 +106,8 @@ body {
 
   /* Style for the avatar image */
   .avatar {
-    width: 120%; /* Takes up the full width of the container */
-    height: 120%; /* Takes up the full height of the container */
+    width: 140%; /* Takes up the full width of the container */
+    height: 140%; /* Takes up the full height of the container */
     object-fit: cover; /* Crops the image to fit within the container without distortion */
 
     
@@ -137,3 +137,21 @@ body {
 .nav-links button:hover {
   background-color: #c3c3c3; /* Darker button color on hover */
 }
+/* Starting CSS for Image Enhancement */
+
+:root {
+  --brightness: 1.05; /* Increase brightness slightly */
+  --contrast: 1.1;   /* Enhance contrast */
+  --saturation: 1.1; /* Boost color saturation */
+  --hue-rotate: -10deg; /* No hue rotation by default */
+  --sharpness: 0.9;  /* Simulated sharpening using box-shadow */
+}
+
+img {
+  filter: brightness(var(--brightness)) 
+          contrast(var(--contrast)) 
+          saturate(var(--saturation)) 
+          hue-rotate(var(--hue-rotate));
+  box-shadow: 0px 0px var(--sharpness) rgba(0,0,0,0.5); /* Simulated sharpening */
+}
+/* Ending CSS for Image Enhancement */

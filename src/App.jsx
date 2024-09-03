@@ -25,7 +25,7 @@ function App() {
             <div className="profile-details">
               <h1>Lars</h1>
               <p>@alwayshangry</p>
-              <p>no u r hangry</p>
+              <p>Premiere Kansas City food critic exploring flavors across the U.S. and beyond 🌎🍴</p>
             </div>
           </div>
         </header>
