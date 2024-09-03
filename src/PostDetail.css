@@ -1,0 +1,40 @@
+/* src/PostDetail.css */
+.post-detail {
+  max-width: 950px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+}
+.back-button {
+  display: block;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #cccccc;
+  color: #333333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+}
+.back-button:hover {
+  background-color: #c3c3c3;
+}
+.post-content {
+  display: flex;
+  align-items: flex-start;
+}
+.post-image {
+  flex: 2; /* Take up 2/3 of the space */
+  max-width: 60%;
+  max-height: 400px;
+  margin-right: 20px;
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.post-caption {
+  flex: 1;
+  font-size: 1rem;
+  color: #333;
+  text-align: left;
+}

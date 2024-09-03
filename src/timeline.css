@@ -1,15 +1,14 @@
+/* src/timeline.css */
 .timeline {
   max-width: 950px;  /* Set maximum width */
   margin: 20px auto; /* Center the timeline container */
   padding: 20px;
 }
-
 .posts {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 10px; /* Adjust the gap between posts */
+  grid-template-columns: repeat(3, 1fr); /* Three columns */
+  gap: 5px 1px; /* 5px column gap, 1px row gap */
 }
-
 .post {
   position: relative;
   overflow: hidden;
@@ -17,7 +16,6 @@
   padding-bottom: 100%; /* Ensures the post is square */
   background-color: #f0f0f0; /* Fallback color */
 }
-
 .post img {
   position: absolute;
   top: 50%;
@@ -26,4 +24,9 @@
   height: 100%;
   object-fit: cover; /* Ensures the image covers the entire post area */
   transform: translate(-50%, -50%);
+  transition: filter 0.3s ease; /* Smooth transition for the hover effect */
+}
+/* Add overlay on hover */
+.post:hover img {
+  filter: brightness(90%);
 }
