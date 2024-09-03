@@ -1,9 +1,7 @@
 .timeline {
-  max-width: 1920px;
-  margin: 0 auto;
+  max-width: 950px;  /* Set maximum width */
+  margin: 20px auto; /* Center the timeline container */
   padding: 20px;
-  margin-top: 20px;
-
 }
 
 .posts {
