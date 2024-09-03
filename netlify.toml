@@ -2,8 +2,8 @@
   # The directory to deploy
   publish = "dist"
   # The command to build your site
-  command = "npm run build"
+  command = "npm install && npm run build"
 
 [context.production.environment]
   # Optional environment variables
-  NODE_ENV = "production"
+  NODE_ENV = "development"
