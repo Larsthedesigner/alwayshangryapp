@@ -8,8 +8,7 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "keywords": [],
-  "author": "",
+  "author": "Larsthedesigner",
   "license": "ISC",
   "devDependencies": {
     "@types/react": "^18.2.37",
