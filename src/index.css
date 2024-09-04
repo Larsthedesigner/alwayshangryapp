@@ -1,120 +1,77 @@
 /* src/index.css */
-
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'helvetica Neue', Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f5f5f5;
 }
-
 .App {
   text-align: center;
   margin: 20px auto; /* Center the app container */
   max-width: 950px;  /* Set maximum width */
 }
-
 .profile-header {
   display: flex;
-  align-items: flex-start;
+  align-items: center;  /* Vertical alignment within the flex container */
   padding: 20px;
+  border-bottom: 1px solid #dbdbdb; /* Light border at the bottom */
 }
-
-.avatar {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  margin-right: 20px;
-}
-
-.profile-info {
+/* Avatar styling */
+.avatar-container {
+  flex-basis: 25%; /* Avatar container takes up 1/4 */
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
 }
-
-.profile-details {
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover; /* Ensures the image covers the entire container without distortion */
+}
+.profile-info {
+  flex-basis: 75%; /* Profile info takes up 3/4 */
+  padding-left: 20%; /* Space between avatar and profile info */
   text-align: left;
 }
-
-.profile-stats {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  width: 200px; /* Adjust width as needed */
+/* Name and bio styling */
+.profile-details h1 {
+  font-size: 18px; /* Larger font size for username */
+  margin: 0;
+  padding-bottom: 24px; /* Space between username and bio */
 }
-
-.stat {
-  text-align: center;
+.profile-details p {
+  font-size: 14px; /* Smaller font size for bio */
+  margin: 5px 0;
+  color: #333; /* Color for bio and other text */
+  font-family: 'Courier New semi', Courier, monospace; /* Apply Courier New font */
 }
-
-.count {
-  font-size: 1.2em;
-  font-weight: bold;
+.profile-details a {
+  font-size: 12px;
+  display: inline-block;
+  margin-top: 10px;
+  color: ##0e3278; /* Darker blue color for the link */
+  text-decoration: none; /* Remove underline */
 }
-
-.caption {
-  font-size: 0.9em;
-  color: #888;
+.profile-details a:hover {
+  text-decoration: underline; /* Add underline on hover */
 }
-
-.view-toggle {
-  margin: 20px 0;
-}
-
-.view-toggle button {
-  background: none;
-  border: none;
-  padding: 10px 15px;
-  margin: 0 5px;
-  cursor: pointer;
-  font-size: 1.5em;
-  color: #555;
-}
-
-.view-toggle button:hover {
-  color: #000;
-
-.avatar-container {
-  width: 100px; /* Adjust the size as needed */
-  height: 100px; /* Must match the width for a perfect circle */
-  border-radius: 50%; /* Makes the container circular */
-  overflow: hidden; /* Hides any overflow from the image */
-  display: cover;
-  align-items: center;
-  justify-content: center;
-  }
-
-  /* Style for the avatar image */
-  .avatar {
-    width: 140%; /* Takes up the full width of the container */
-    height: 140%; /* Takes up the full height of the container */
-    object-fit: cover; /* Crops the image to fit within the container without distortion */
-
-    
-  }
-
-}
-
-/* Add these styles to your CSS file */
-
+/* Styling for buttons */
 .nav-links {
-  position: absolute; /* Position the container absolutely */
-  top: 4px; /* Distance from the top */
-  right: 4px; /* Distance from the right */
+  position: absolute;
+  top: .55rem;
+  right: .5rem;
   display: flex; /* Display buttons in a row */
-  gap: 10px; /* Space between the buttons */
+  gap: .5rem; /* Space between the buttons */
 }
-
 .nav-links button {
-  background-color: #cccccc; /* Button color */
-  color: #333333; /* Text color */
+  background-color: #dddddd; /* Instagram-like blue button */
+  color: #333333; /* White text */
   border: none; /* Remove border */
-  padding: 4px 8px; /* Button padding */
+  padding: 4px 12px; /* Button padding */
   border-radius: 5px; /* Rounded corners */
   cursor: pointer; /* Pointer cursor on hover */
 }
-
 .nav-links button:hover {
-  background-color: #c3c3c3; /* Darker button color on hover */
+  background-color: #cccccc; /* Darker button color on hover */
 }

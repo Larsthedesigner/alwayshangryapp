@@ -1,4 +1,3 @@
-// src/App.jsx
 import React, { useState, useEffect, useContext } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Timeline from './timeline.jsx';
@@ -34,22 +33,22 @@ function App() {
           </div>
           <div className="profile-info">
             <div className="profile-details">
-              <h1>Lars</h1>
-              <p>@alwayshangry</p>
-              <p>Premiere Kansas City food critic exploring flavors across the U.S. and beyond 🌎🍴</p>
+              <h1>@AlwaysHangry</h1>
+              <p>Lars is a premiere Kansas City food critic exploring flavors across the U.S. and beyond 🌎🍴</p>
+              <a href="https://forms.gle/mpQgjbkxdZZxAqFZ8" target="_blank" rel="noopener noreferrer">📝 Suggest a Restaurant to Visit</a>
+            </div>
+            <div className="nav-links">
+              <Link to="/login">
+                <button>Login</button>
+              </Link>
+              {user && (
+                <Link to="/create-post">
+                  <button>Create Post</button>
+                </Link>
+              )}
             </div>
           </div>
         </header>
-        <div className="nav-links">
-          <Link to="/login">
-            <button>Login</button>
-          </Link>
-          {user && (
-            <Link to="/create-post">
-              <button>Create Post</button>
-            </Link>
-          )}
-        </div>
         <section className={`timeline ${layout}`}>
           <Routes>
             <Route path="/" element={<Timeline posts={posts} />} />
@@ -63,3 +62,4 @@ function App() {
   );
 }
 export default App;
+              
