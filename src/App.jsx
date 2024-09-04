@@ -33,7 +33,7 @@ function App() {
           </div>
           <div className="profile-info">
             <div className="profile-details">
-              <h1>@AlwaysHangry</h1>
+              <h1>@AlmostHangry</h1>
               <p>Lars is a premiere Kansas City food critic exploring flavors across the U.S. and beyond 🌎🍴</p>
               <a href="https://forms.gle/mpQgjbkxdZZxAqFZ8" target="_blank" rel="noopener noreferrer">📝 Suggest a Restaurant to Visit</a>
             </div>
