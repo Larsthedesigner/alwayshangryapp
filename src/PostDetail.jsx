@@ -13,7 +13,7 @@ function PostDetail({ posts }) {
     <div className="post-detail">
       <button className="back-button" onClick={() => navigate('/')}>Back to Timeline</button>
       <div className="post-content">
-        <img src={post.image} alt={post.caption} className="post-image" />
+        <img loading="lazy" src={post.image} alt={post.caption} className="post-image" />
         <p className="post-caption">{post.caption}</p>
       </div>
     </div>

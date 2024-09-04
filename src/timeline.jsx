@@ -35,7 +35,7 @@ function Timeline() {
         {posts.map((post) => (
           <div key={post.id} className="post">
             <Link to={`/posts/${post.id}`}>
-              {post.image && <img src={post.image} alt="Post" />}
+              {post.image && <img loading="lazy" src={post.image} alt="Post" />}
             </Link>
           </div>
         ))}
