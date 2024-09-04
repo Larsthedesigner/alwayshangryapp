@@ -1,13 +1,14 @@
-// src/timeline.jsx
 import React, { useEffect, useState } from 'react';
 import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
 import { db } from './firebaseconfig';
 import { Link } from 'react-router-dom';
 import './timeline.css'; // Ensure you import your CSS file
+
 function Timeline() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
   useEffect(() => {
     const q = query(collection(db, 'posts'), orderBy('createdAt', 'desc'));
     const unsubscribe = onSnapshot(
@@ -24,6 +25,7 @@ function Timeline() {
     );
     return () => unsubscribe(); // Clean up the listener
   }, []);
+
   return (
     <div className="timeline">
       {loading && <p>Loading posts...</p>}
@@ -34,7 +36,6 @@ function Timeline() {
           <div key={post.id} className="post">
             <Link to={`/posts/${post.id}`}>
               {post.image && <img src={post.image} alt="Post" />}
-              <p>{post.caption}</p>
             </Link>
           </div>
         ))}
@@ -42,4 +43,5 @@ function Timeline() {
     </div>
   );
 }
+
 export default Timeline;

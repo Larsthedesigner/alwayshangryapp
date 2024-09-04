@@ -58,26 +58,6 @@ body {
   color: #888;
 }
 
-.timeline.grid .post {
-  display: inline-block;
-  width: 30%;
-  margin: 1%;
-  box-sizing: border-box;
-}
-
-.timeline.list .post {
-  display: block;
-  width: 100%;
-  margin: 10px 0;
-}
-
-.post {
-  background-color: white;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 0px;
-}
-
 .view-toggle {
   margin: 20px 0;
 }
@@ -95,14 +75,14 @@ body {
 .view-toggle button:hover {
   color: #000;
 
-  .avatar-container {
-    width: 100px; /* Adjust the size as needed */
-    height: 100px; /* Must match the width for a perfect circle */
-    border-radius: 50%; /* Makes the container circular */
-    overflow: hidden; /* Hides any overflow from the image */
-    display: cover;
-    align-items: center;
-    justify-content: center;
+.avatar-container {
+  width: 100px; /* Adjust the size as needed */
+  height: 100px; /* Must match the width for a perfect circle */
+  border-radius: 50%; /* Makes the container circular */
+  overflow: hidden; /* Hides any overflow from the image */
+  display: cover;
+  align-items: center;
+  justify-content: center;
   }
 
   /* Style for the avatar image */
@@ -138,21 +118,3 @@ body {
 .nav-links button:hover {
   background-color: #c3c3c3; /* Darker button color on hover */
 }
-/* Starting CSS for Image Enhancement */
-
-:root {
-  --brightness: 1.05; /* Increase brightness slightly */
-  --contrast: 1.1;   /* Enhance contrast */
-  --saturation: 1.1; /* Boost color saturation */
-  --hue-rotate: -10deg; /* No hue rotation by default */
-  --sharpness: 0.9;  /* Simulated sharpening using box-shadow */
-}
-
-img {
-  filter: brightness(var(--brightness)) 
-          contrast(var(--contrast)) 
-          saturate(var(--saturation)) 
-          hue-rotate(var(--hue-rotate));
-  box-shadow: 0px 0px var(--sharpness) rgba(0,0,0,0.5); /* Simulated sharpening */
-}
-/* Ending CSS for Image Enhancement */
