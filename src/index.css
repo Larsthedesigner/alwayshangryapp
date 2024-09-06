@@ -31,7 +31,7 @@ body {
 }
 .profile-info {
   flex-basis: 75%; /* Profile info takes up 3/4 */
-  padding-left: 20%; /* Space between avatar and profile info */
+  padding-left: 5vw; /* Space between avatar and profile info */
   text-align: left;
 }
 /* Name and bio styling */

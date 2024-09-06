@@ -2,16 +2,16 @@
 
 import React, { useState } from 'react';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage'; // Import uploadBytesResumable
 import { getFirestore, collection, addDoc, Timestamp } from 'firebase/firestore';
 import { storage } from './firebaseconfig';
-import imageCompression from 'browser-image-compression'; // Import browser-image-compression
 import { useNavigate } from 'react-router-dom';
 
 function CreatePost() {
   const [image, setImage] = useState(null);
   const [caption, setCaption] = useState('');
   const [user, setUser] = useState(null);
+  const [uploadProgress, setUploadProgress] = useState(0); // State for upload progress
   const auth = getAuth();
   const db = getFirestore();
   const navigate = useNavigate();
@@ -35,38 +35,38 @@ function CreatePost() {
     e.preventDefault();
     if (!image || !caption || !user) return;
 
-    // Options for image compression
-    const options = {
-      maxSizeMB: 1,
-      maxWidthOrHeight: 800,
-      useWebWorker: true,
-    };
+    const imageRef = ref(storage, `images/${image.name}`);
+    const uploadTask = uploadBytesResumable(imageRef, image);
 
-    try {
-      // Compress the image file
-      const compressedFile = await imageCompression(image, options);
+    uploadTask.on(
+      'state_changed',
+      (snapshot) => {
+        // Get task progress, including the number of bytes uploaded and total number of bytes to be uploaded
+        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        setUploadProgress(progress);
+        console.log(`Upload is ${progress}% done`);
+      },
+      (error) => {
+        // Handle unsuccessful uploads
+        console.error('Error uploading image:', error);
+      },
+      async () => {
+        // Handle successful uploads on complete
+        const imageUrl = await getDownloadURL(uploadTask.snapshot.ref);
+        await addDoc(collection(db, 'posts'), {
+          caption,
+          image: imageUrl,
+          createdAt: Timestamp.fromDate(new Date()),
+          userId: user.uid,
+        });
 
-      // Upload the compressed image to Firebase Storage
-      const imageRef = ref(storage, `images/${compressedFile.name}`);
-      await uploadBytes(imageRef, compressedFile);
-      const imageUrl = await getDownloadURL(imageRef);
-
-      // Add the post details to Firestore
-      await addDoc(collection(db, 'posts'), {
-        caption,
-        image: imageUrl,
-        createdAt: Timestamp.fromDate(new Date()),
-        userId: user.uid,
-      });
-
-      // Clear form fields after upload
-      setImage(null);
-      setCaption('');
-      navigate('/'); // Navigate back to the timeline after posting
-
-    } catch (error) {
-      console.error('Error uploading image:', error);
-    }
+        // Clear form fields after upload
+        setImage(null);
+        setCaption('');
+        setUploadProgress(0); // Reset progress
+        navigate('/'); // Navigate back to the timeline after posting
+      }
+    );
   };
 
   return (
@@ -81,6 +81,7 @@ function CreatePost() {
         />
         <button type="submit">Submit Post</button>
       </form>
+      {uploadProgress > 0 && <p>Upload is {uploadProgress}% done</p>}
       <button onClick={() => navigate('/')}>Back to Timeline</button>
     </div>
   );
