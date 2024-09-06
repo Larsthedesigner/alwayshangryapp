@@ -5,7 +5,8 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { getFirestore, collection, addDoc, Timestamp } from 'firebase/firestore';
 import { storage } from './firebaseconfig';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import imageCompression from 'browser-image-compression'; // Import browser-image-compression
+import { useNavigate } from 'react-router-dom';
 
 function CreatePost() {
   const [image, setImage] = useState(null);
@@ -13,7 +14,7 @@ function CreatePost() {
   const [user, setUser] = useState(null);
   const auth = getAuth();
   const db = getFirestore();
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   // Check if the user is authenticated
   onAuthStateChanged(auth, (currentUser) => {
@@ -34,24 +35,38 @@ function CreatePost() {
     e.preventDefault();
     if (!image || !caption || !user) return;
 
-    // Upload image
-    const imageRef = ref(storage, `images/${image.name}`);
-    await uploadBytes(imageRef, image);
+    // Options for image compression
+    const options = {
+      maxSizeMB: 1,
+      maxWidthOrHeight: 800,
+      useWebWorker: true,
+    };
 
-    // Get image URL
-    const imageUrl = await getDownloadURL(imageRef);
+    try {
+      // Compress the image file
+      const compressedFile = await imageCompression(image, options);
 
-    // Add post to Firestore
-    await addDoc(collection(db, 'posts'), {
-      caption,
-      image: imageUrl,
-      createdAt: Timestamp.fromDate(new Date()),
-      userId: user.uid,
-    });
+      // Upload the compressed image to Firebase Storage
+      const imageRef = ref(storage, `images/${compressedFile.name}`);
+      await uploadBytes(imageRef, compressedFile);
+      const imageUrl = await getDownloadURL(imageRef);
 
-    // Clear form
-    setImage(null);
-    setCaption('');
+      // Add the post details to Firestore
+      await addDoc(collection(db, 'posts'), {
+        caption,
+        image: imageUrl,
+        createdAt: Timestamp.fromDate(new Date()),
+        userId: user.uid,
+      });
+
+      // Clear form fields after upload
+      setImage(null);
+      setCaption('');
+      navigate('/'); // Navigate back to the timeline after posting
+
+    } catch (error) {
+      console.error('Error uploading image:', error);
+    }
   };
 
   return (
@@ -66,7 +81,7 @@ function CreatePost() {
         />
         <button type="submit">Submit Post</button>
       </form>
-      <button onClick={() => navigate('/')}>Back to Timeline</button> {/* Back to Timeline button */}
+      <button onClick={() => navigate('/')}>Back to Timeline</button>
     </div>
   );
 }
