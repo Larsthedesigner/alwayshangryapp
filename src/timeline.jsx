@@ -1,3 +1,5 @@
+// src/Timeline.jsx
+
 import React, { useEffect, useState } from 'react';
 import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
 import { db } from './firebaseconfig';
@@ -26,6 +28,13 @@ function Timeline() {
     return () => unsubscribe(); // Clean up the listener
   }, []);
 
+  const getImageUrl = (post) => {
+    if (Array.isArray(post.images) && post.images.length > 0) {
+      return post.images[0]; // Return the first image URL if images is an array
+    }
+    return post.image || ''; // Return the single image URL or an empty string if no image
+  };
+
   return (
     <div className="timeline">
       {loading && <p>Loading posts...</p>}
@@ -35,7 +44,7 @@ function Timeline() {
         {posts.map((post) => (
           <div key={post.id} className="post">
             <Link to={`/posts/${post.id}`}>
-              {post.image && <img loading="lazy" src={post.image} alt="Post" />}
+              {getImageUrl(post) && <img loading="lazy" src={getImageUrl(post)} alt="Post" />}
             </Link>
           </div>
         ))}
