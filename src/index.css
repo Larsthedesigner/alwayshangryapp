@@ -1,77 +1,100 @@
 /* src/index.css */
+
+/* General image enhancements */
+img {
+  filter: brightness(0.9) contrast(1.1);
+  /* Any other image styles */
+}
+
+/* Specific class for the avatar to ensure no enhancements are applied */
+#profile-avatar {
+  filter: none; /* Override any general image filters */
+  /* Add any other specific styles for avatar if needed */
+}
+
 body {
   font-family: 'helvetica Neue', Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f5f5f5;
 }
+
 .App {
   text-align: center;
-  margin: 20px auto; /* Center the app container */
-  max-width: 950px;  /* Set maximum width */
+  margin: 20px auto; 
+  max-width: 950px;
 }
+
 .profile-header {
   display: flex;
-  align-items: center;  /* Vertical alignment within the flex container */
+  align-items: center;
   padding: 20px;
-  border-bottom: 1px solid #dbdbdb; /* Light border at the bottom */
+  border-bottom: 1px solid #dbdbdb;
 }
+
 /* Avatar styling */
 .avatar-container {
-  flex-basis: 25%; /* Avatar container takes up 1/4 */
+  flex-basis: 25%;
   display: flex;
-  align-items: center; /* Center items vertically */
-  justify-content: center; /* Center items horizontally */
+  align-items: center; 
+  justify-content: center;
 }
+
 .avatar {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  object-fit: cover; /* Ensures the image covers the entire container without distortion */
+  object-fit: cover;
 }
+
 .profile-info {
-  flex-basis: 75%; /* Profile info takes up 3/4 */
-  padding-left: 5vw; /* Space between avatar and profile info */
+  flex-basis: 75%;
+  padding-left: 5vw;
   text-align: left;
 }
-/* Name and bio styling */
+
 .profile-details h1 {
-  font-size: 18px; /* Larger font size for username */
+  font-size: 18px;
   margin: 0;
-  padding-bottom: 24px; /* Space between username and bio */
+  padding-bottom: 24px;
 }
+
 .profile-details p {
-  font-size: 14px; /* Smaller font size for bio */
+  font-size: 14px;
   margin: 5px 0;
-  color: #333; /* Color for bio and other text */
-  font-family: 'Courier New semi', Courier, monospace; /* Apply Courier New font */
+  color: #333;
+  font-family: 'Courier New semi', Courier, monospace;
 }
+
 .profile-details a {
   font-size: 12px;
   display: inline-block;
   margin-top: 10px;
-  color: ##0e3278; /* Darker blue color for the link */
-  text-decoration: none; /* Remove underline */
+  color: ##0e3278;
+  text-decoration: none;
 }
+
 .profile-details a:hover {
-  text-decoration: underline; /* Add underline on hover */
+  text-decoration: underline;
 }
-/* Styling for buttons */
+
 .nav-links {
   position: absolute;
   top: .55rem;
   right: .5rem;
-  display: flex; /* Display buttons in a row */
-  gap: .5rem; /* Space between the buttons */
+  display: flex;
+  gap: .5rem;
 }
+
 .nav-links button {
-  background-color: #dddddd; /* Instagram-like blue button */
-  color: #333333; /* White text */
-  border: none; /* Remove border */
-  padding: 4px 12px; /* Button padding */
-  border-radius: 5px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor on hover */
+  background-color: #dddddd;
+  color: #333333;
+  border: none;
+  padding: 4px 12px;
+  border-radius: 5px;
+  cursor: pointer;
 }
+
 .nav-links button:hover {
-  background-color: #cccccc; /* Darker button color on hover */
+  background-color: #cccccc;
 }

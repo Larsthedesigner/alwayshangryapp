@@ -29,7 +29,7 @@ function App() {
       <div className="App">
         <header className="profile-header">
           <div className="avatar-container">
-            <img loading="lazy" src={avatar} alt="Avatar" className="avatar" />
+            <img id="profile-avatar" loading="lazy" src={avatar} alt="Avatar" className="avatar" />
           </div>
           <div className="profile-info">
             <div className="profile-details">
