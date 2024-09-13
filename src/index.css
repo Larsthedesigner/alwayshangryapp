@@ -12,9 +12,10 @@ body {
 }
 .profile-header {
   display: flex;
-  align-items: center;  /* Vertical alignment within the flex container */
+  flex-direction: row;
+  align-items: center;
   padding: 20px;
-  border-bottom: 1px solid #dbdbdb; /* Light border at the bottom */
+  border-bottom: 1px solid #dbdbdb;
 }
 /* Avatar styling */
 .avatar-container {
@@ -36,7 +37,7 @@ body {
 }
 /* Name and bio styling */
 .profile-details h1 {
-  font-size: 18px; /* Larger font size for username */
+  font-size: 12px; /* Larger font size for username */
   margin: 0;
   padding-bottom: 24px; /* Space between username and bio */
 }
@@ -52,6 +53,36 @@ body {
   margin-top: 10px;
   color: ##0e3278; /* Darker blue color for the link */
   text-decoration: none; /* Remove underline */
+
+}
+.profile-header-row {
+    display: flex;
+    align-items: middle;
+    margin-bottom: 10px;
+  }
+.profile-header-row h1 {
+  flex: 1; /* Take up remaining space */
+  margin: 0;
+  font-size: 16px;
+  vertical-align: middle;
+}
+.counters {
+  display: flex;
+}
+.counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+}
+.counter strong {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+.counter span {
+  font-size: 14px;
+  color: #666;
+}
 }
 .profile-details a:hover {
   text-decoration: underline; /* Add underline on hover */
