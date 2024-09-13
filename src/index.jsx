@@ -1,19 +1,17 @@
-// src/index.js
-
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
+import ReactDOM from 'react-dom';
 import App from './App.jsx';
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import { AuthProvider } from './authcontext.jsx'; // Import AuthProvider
+import './index.css';
+import { AuthProvider } from './authcontext.jsx';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+ReactDOM.render(
 	<React.StrictMode>
 		<AuthProvider>
-			<App />
+			<Router>
+				<App />
+			</Router>
 		</AuthProvider>
-	</React.StrictMode>
+	</React.StrictMode>,
+	document.getElementById('root')
 );
-
-

@@ -1,17 +1,28 @@
-## Running React on Replit
+# AlwaysHangry - A Food Blog
+![Profile Avatar](src/Images/avatar.jpeg)
+Welcome to AlwaysHangry, a premier food blog by Lars, where I explore and critique flavors across Kansas City, the U.S., and beyond! 🌎🍴
 
-[React](https://reactjs.org/) is a popular JavaScript library for building user interfaces.
+## Purpose
+The purpose of AlwaysHangry is to share my culinary adventures, offer restaurant recommendations, and connect with fellow food enthusiasts. This app allows anyone to view my posts/ post details, and allows me to log in, create posts with images.
 
-[Vite](https://vitejs.dev/) is a blazing fast frontend build tool that includes features like Hot Module Reloading (HMR), optimized builds, and TypeScript support out of the box.
-
-Using the two in conjunction is one of the fastest ways to build a web app.
-
-### Getting Started
-- Hit run
-- Edit [App.jsx](#src/App.jsx) and watch it live update!
-
-By default, Replit runs the `dev` script, but you can configure it by changing the `run` field in the [configuration file](#.replit). Here are the vite docs for [serving production websites](https://vitejs.dev/guide/build.html)
-
-### Typescript
-
-Just rename any file from `.jsx` to `.tsx`. You can also try our [TypeScript Template](https://replit.com/@replit/React-TypeScript)# alwayshangry
+## Core Features
+1. **User Authentication:**
+    - Secure login for users to create their own posts.
+2. **Responsive Timeline:**
+    - View a list of food post entries in a responsive list or grid layout.
+3. **Create and Upload Posts:**
+    - Authenticated users can create new posts with captions and images.
+    - Multi-image upload support with progress tracking.
+4. **Post Details:**
+    - Detailed view of individual posts with vertical stacking of images.
+    - Captions and user information displayed prominently.
+5. **Firebase Integration:**
+    - Authentication and Firestore for data storage.
+    - Firebase Storage for image handling.
+    - 
+## Technologies Used
+- **Frontend:** React.js with Vite for fast build and hot module reloading.
+- **Backend Services:** Firebase Authentication, Firestore, and Storage.
+- **Routing:** React Router for client-side routing.
+- **Styling:** CSS3 with responsive design principles.
+- **File Handling:** React Dropzone for image uploads.
