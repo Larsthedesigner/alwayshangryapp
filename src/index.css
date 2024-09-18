@@ -54,7 +54,7 @@ body {
 }
 
 .profile-details h1 {
-  font-size: 18px;
+  font-size: 12px; /* Larger font size for username */
   margin: 0;
   padding-bottom: 24px;
 }
@@ -70,8 +70,37 @@ body {
   font-size: 12px;
   display: inline-block;
   margin-top: 10px;
-  color: ##0e3278;
-  text-decoration: none;
+  color: ##0e3278; /* Darker blue color for the link */
+  text-decoration: none; /* Remove underline */
+
+}
+.profile-header-row {
+    display: flex;
+    align-items: middle;
+    margin-bottom: 10px;
+  }
+.profile-header-row h1 {
+  flex: 1; /* Take up remaining space */
+  margin: 0;
+  font-size: 16px;
+  vertical-align: middle;
+}
+.counters {
+  display: flex;
+}
+.counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+}
+.counter strong {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+.counter span {
+  font-size: 14px;
+  color: #666;
 }
 
 .profile-details a:hover {

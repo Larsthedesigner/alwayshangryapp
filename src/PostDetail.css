@@ -1,4 +1,5 @@
 /* src/PostDetail.css */
+
 .post-detail {
   max-width: 950px;
   margin: 20px auto;
@@ -6,20 +7,21 @@
   background-color: white;
 }
 
-.back-button {
-  display: block;
-  margin-bottom: 20px;
-  padding: 10px 20px;
-  background-color: #cccccc;
-  color: #333333;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  outline: none;
+.btn {
+  display: block; /* Ensure block display */
+  margin-bottom: 20px; /* Space below the button */
+  padding: 10px 20px; /* Padding inside the button */
+  background-color: #cccccc; /* Button background color */
+  color: #333333; /* Button text color */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  outline: none; /* Remove outline */
+  text-align: center; /* Center text inside button */
 }
 
-.back-button:hover {
-  background-color: #c3c3c3;
+.btn:hover {
+  background-color: #c3c3c3; /* Button background color on hover */
 }
 
 .post-content {
@@ -30,18 +32,101 @@
 
 .post-image-container {
   margin-bottom: 20px;
+  width: 100%; /* Ensure the container takes the full width */
 }
 
 .post-image {
-  max-width: 100%;
-  max-height: 400px;
-  object-fit: cover;
+  width: 100%; /* Ensure the image fits the width of its container */
+  height: auto; /* Maintain the aspect ratio */
   border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .post-caption {
   font-size: 1rem;
   color: #333;
   text-align: left;
+}
+
+.comments-section {
+  margin-top: 30px;
+  background-color: #f9f9f9; /* Grey background */
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.comments-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comments-header h2 {
+  margin: 0;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.comment-form input,
+.comment-form textarea {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.comments-list .comment {
+  display: flex;
+  align-items: flex-start;
+  padding: 5px 0; /* Reduced padding */
+}
+
+.comment-name {
+  flex-shrink: 0;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.comment-content {
+  flex: 1;
+  margin-right: 10px;
+  text-align: left; /* Ensure the text is left-aligned */
+  word-break: break-word; /* Ensure long words are wrapped */
+}
+
+.comment-date {
+  flex-shrink: 0;
+  font-size: 0.85em;
+  color: #555;
+  margin-right: 10px;
+}
+
+.comment-delete {
+  flex-shrink: 0;
+  padding: 5px 10px;
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px; /* Adding margin to separate delete button */
+}
+
+.comment-delete:hover {
+  background-color: #c9302c;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+.comment-divider {
+  border: none;
+  border-top: 1px solid #ddd; /* Light grey color for the divider */
+  margin: 10px 0;
 }
